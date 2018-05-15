@@ -18,7 +18,7 @@ class TestAdb(unittest.TestCase):
 
     def test_serial(self):
         serial = "abcdef1234567890"
-        adb = Adb(serial)
+        adb = Adb()
         self.assertEqual(adb.default_serial, serial)
 
         adb.devices = MagicMock()

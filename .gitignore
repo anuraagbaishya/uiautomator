@@ -9,3 +9,12 @@ uiautomator.egg-info
 *.egg
 .tox
 .coverage
+.DS_Store
+.Python
+.idea/
+.idea/vcs.xml
+META-INF/
+include/
+lib/
+pip-selfcheck.json
+uiautomator/libs/.DS_Store
