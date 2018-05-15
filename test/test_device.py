@@ -6,7 +6,7 @@ import re
 import os.path
 import codecs
 from mock import MagicMock, call, patch
-from uiautomator import AutomatorDevice, selector
+from uiautomator import AutomatorDevice, Selector
 
 
 class TestDevice(unittest.TestCase):
@@ -171,14 +171,14 @@ class TestDevice(unittest.TestCase):
         self.device.watcher("watcher").when(**condition1).when(**condition2).click(**target)
         self.device.server.jsonrpc.registerClickUiObjectWatcher.assert_called_once_with(
             "watcher",
-            [selector(**condition1), selector(**condition2)],
-            selector(**target)
+            [Selector(**condition1), Selector(**condition2)],
+            Selector(**target)
         )
 
         self.device.server.jsonrpc.registerPressKeyskWatcher = MagicMock()
         self.device.watcher("watcher2").when(**condition1).when(**condition2).press.back.home.power("menu")
         self.device.server.jsonrpc.registerPressKeyskWatcher.assert_called_once_with(
-            "watcher2", [selector(**condition1), selector(**condition2)], ("back", "home", "power", "menu"))
+            "watcher2", [Selector(**condition1), Selector(**condition2)], ("back", "home", "power", "menu"))
 
     def test_press(self):
         key = ["home", "back", "left", "right", "up", "down", "center",
@@ -272,7 +272,7 @@ class TestDevice(unittest.TestCase):
         with patch("uiautomator.AutomatorDeviceObject") as AutomatorDeviceObject:
             kwargs = {"text": "abc", "description": "description...", "clickable": True}
             self.device(**kwargs)
-            AutomatorDeviceObject.assert_called_once_with(self.device, selector(**kwargs))
+            AutomatorDeviceObject.assert_called_once_with(self.device, Selector(**kwargs))
 
         with patch("uiautomator.AutomatorDeviceObject") as AutomatorDeviceObject:
             AutomatorDeviceObject.return_value.exists = True
