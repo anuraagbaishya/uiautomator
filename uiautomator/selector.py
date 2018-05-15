@@ -1,3 +1,6 @@
+from utils import U
+
+
 class Selector(dict):
 
     """The class is to build parameters for UiSelector passed to Android device.

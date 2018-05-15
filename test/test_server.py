@@ -28,7 +28,7 @@ class TestAutomatorServer(unittest.TestCase):
         self.assertEqual(AutomatorServer("1234").local_port, 1000)
 
     def test_local_port_scanning(self):
-        with patch('uiautomator.next_local_port') as next_local_port:
+        with patch('uiautomator.utils.next_local_port') as next_local_port:
             self.Adb.return_value.forward_list.return_value = []
             next_local_port.return_value = 1234
             self.assertEqual(AutomatorServer("abcd", None).local_port,
