@@ -7,7 +7,6 @@ uiautomator
 [![build](https://img.shields.io/travis/xiaocong/uiautomator/master.svg)](https://travis-ci.org/xiaocong/uiautomator)
 [![Coverage Status](https://img.shields.io/coveralls/xiaocong/uiautomator/master.svg)](https://coveralls.io/r/xiaocong/uiautomator?branch=master)
 [![pypi](https://img.shields.io/pypi/v/uiautomator.svg)](https://pypi.python.org/pypi/uiautomator)
-[![downloads](https://img.shields.io/pypi/dm/uiautomator.svg)](https://pypi.python.org/pypi/uiautomator)
 
 This module is a Python wrapper of Android [uiautomator][] testing framework. It works on Android 4.1+ simply with Android device attached via adb, no need to install anything on Android device.
 
@@ -17,6 +16,9 @@ from uiautomator import device as d
 d.screen.on()
 d(text="Clock").click()
 ```
+### Note:
+
+This fork was made to refactor the code. The original [repository](https://github.com/xiaocong/uiautomator) has all the code in `__init__.py`, whereas this forked repository has major classes in different files. I do not intend to create a PR and merge with original repository as the repository seems unmaintained. I do not take any credit for this library. All credit goes to [Xiaocong He](https://github.com/xiaocong) and other developers who have contributed to the project. Also, I do not have much knowledge on the workings of the code and hence will not be able to guide anyone who may have issues while using the library.
 
 ## Installation
 
@@ -332,7 +334,7 @@ You can register [watcher](http://developer.android.com/tools/help/uiautomator/U
   d.watchers.reset()
   ```
 
-* Remvoe watchers
+* Remove watchers
 
   ```python
   # remove all registered watchers
@@ -350,7 +352,7 @@ You can register [watcher](http://developer.android.com/tools/help/uiautomator/U
 
 ### Handler
 
-The functionality of handler is same as Watcher, except it is implemented ourside of Android uiautomator. The most different usage between handler and watcher is, handler can use customized callback function.
+The functionality of Handler is same as Watcher, except it is implemented outside of Android uiautomator. The most difference between handler and watcher is that handler can use customized callback function.
 
 ```python
 def fc_close(device):
@@ -704,12 +706,14 @@ Selector supports below parameters. Refer to [UiSelector java doc](http://develo
 - Qian Jin ([@QianJin2013][])
 - Xu Jingjie ([@xiscoxu][])
 - Xia Mingyuan ([@mingyuan-xia][])
+- Anuraag Baishya ([@anuraagbaishya][])
 
 [@xiaocong]: https://github.com/xiaocong
 [@yuanyuan]: https://github.com/yuanyuanzou
 [@QianJin2013]: https://github.com/QianJin2013
 [@xiscoxu]: https://github.com/xiscoxu
 [@mingyuan-xia]: https://github.com/mingyuan-xia
+[@anuraagbaishya]: https://github.com/anuraagbaishya
 
 ## Issues & Discussion
 
