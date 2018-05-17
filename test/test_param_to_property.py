@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from uiautomator import param_to_property
+from uiautomator.utils import param_to_property
 
 
 class TestParamToProperty(unittest.TestCase):
